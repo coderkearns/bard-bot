@@ -1,0 +1,16 @@
+{
+  "name": "bard-bot",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carter Kearns <coder.kearns@gmail.com> (https://github.com/coderkearns)",
+  "license": "ISC",
+  "dependencies": {
+    "install": "^0.13.0",
+    "node-fetch": "^2.6.7",
+    "npm": "^8.7.0"
+  }
+}
