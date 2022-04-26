@@ -6,7 +6,7 @@ function parseDiceNotation(notation) {
     // 2d8-5 -> { dice: 2, sides: 8, modifier: -5 }
     // 4d6*100 -> { dice: 4, sides: 6, modifier: 0, multiplier: 100 }
     const regex = /^(\d*)d(\d+)([+-]\d+)?(\*\d+)?$/;
-    const match = regex.exec(notation.replaceAll(/\s/g, ""));
+    const match = regex.exec(notation.replace(/\s/g, ""));
     if (!match) {
         throw new Error(`Invalid dice notation: ${notation}`);
     }

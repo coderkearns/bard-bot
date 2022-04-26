@@ -9,8 +9,7 @@
   "author": "Carter Kearns <coder.kearns@gmail.com> (https://github.com/coderkearns)",
   "license": "ISC",
   "dependencies": {
-    "install": "^0.13.0",
-    "node-fetch": "^2.6.7",
-    "npm": "^8.7.0"
+    "discord.js": "^12.5.3",
+    "enmap": "^5.8.7"
   }
 }
