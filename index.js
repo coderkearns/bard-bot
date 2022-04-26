@@ -13,4 +13,6 @@ const client = new Snap({
     ]
 })
 
+require("./keepAlive")()
+
 client.run()
