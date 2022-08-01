@@ -149,6 +149,7 @@ function renderSpeed(speed) {
     }
 
     return Object.entries(speed).map(([key, value]) => {
+		if (typeof value === "object") value = `${value.number} ${value.condition}`
         return `${key} ${value} ft.`
     }).join(", ")
 }
@@ -195,7 +196,7 @@ function renderChallenge(cr) {
 
     if (typeof cr === "object") {
         if (cr.xp) return `${cr.cr} (${cr.xp} XP)`
-        num = parseCr(cr.cr)
+        num = parseInt(cr.cr)
     }
 
     const xp = calculateChallangeXP(num)
@@ -259,10 +260,14 @@ function renderFeatures(monster) {
 function renderEntry(entry) {
     if (typeof entry === "string") return entry
     if (entry.type === "entries") return `*${entry.name}*. ${entry.entries.join("\n")}`
-    if (entry.type === "list") return entry.items.map(item => `- ${item}`).join("\n")
-    return `Unknown (${entry.type})`
+    if (entry.type === "list") return entry.items.map(item => `- ${renderEntry(item)}`).join("\n")
+    return renderObject(entry)
 }
 
+function renderObject(obj) {
+	if (obj.type === "item") return `**${obj.name}** *${obj.entry}*`
+	return JSON.stringify(obj)
+}
 
 function renderActions(monster) {
     let ret = []
